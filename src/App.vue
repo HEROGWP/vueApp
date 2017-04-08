@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <!--
       router-link 就像
       <a href="/c2f">CtoF</a>
@@ -13,8 +12,12 @@
         component: Hello
       },
     -->
-    <router-link :to="{path: '/hello'}">Hello</router-link>
-    <router-link :to="{name: 'c2f'}">CtoF</router-link>
+    <div class="my-nav">
+      <router-link :to="{path: '/hello'}">Hello</router-link>
+      <router-link :to="{name: 'c2f'}">CtoF</router-link>
+      <router-link :to="{name: 'learnComponent'}">learnComponent</router-link>
+    </div>
+
     <router-view></router-view>
   </div>
 </template>
@@ -26,12 +29,17 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+
+.my-nav {
+  position: fixed;
+  top: 60px;
+  padding: 0 10px;
 }
+
+.my-nav a {
+  display: block;
+  margin-bottom: 10px;
+    }
 </style>

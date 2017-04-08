@@ -8,8 +8,9 @@ Vue.use(VueRouter)
 
 
 // page
-import Hello from './components/Hello.vue';
-import CtoF from './components/C2F.vue';
+import Hello from './pages/Hello.vue';
+import CtoF from './pages/C2F.vue';
+import learnComponent from './pages/learnComponent.vue';
 import App from './App.vue';
 
 const router = new VueRouter({
@@ -27,6 +28,11 @@ const router = new VueRouter({
       path: '/c2f',
       name: 'c2f',
       component: CtoF
+    },
+    {
+      path: '/learnComponent',
+      name: 'learnComponent',
+      component: learnComponent
     },
     // router 轉址
     { path: '/*', redirect: '/hello' }

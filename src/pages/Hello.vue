@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <img src="../assets/logo.png">
+
     <!-- 2. msg 雙向綁定到 template 的地方 -->
     <h1>{{ msg }}</h1>
 
