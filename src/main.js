@@ -11,6 +11,8 @@ Vue.use(VueRouter)
 import Hello from './pages/Hello.vue';
 import CtoF from './pages/C2F.vue';
 import learnComponent from './pages/learnComponent.vue';
+import Info from './pages/Info.vue';
+
 import App from './App.vue';
 
 const router = new VueRouter({
@@ -33,6 +35,11 @@ const router = new VueRouter({
       path: '/learnComponent',
       name: 'learnComponent',
       component: learnComponent
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: Info
     },
     // router 轉址
     { path: '/*', redirect: '/hello' }

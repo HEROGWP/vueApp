@@ -16,6 +16,7 @@
       <router-link :to="{path: '/hello'}">Hello</router-link>
       <router-link :to="{name: 'c2f'}">CtoF</router-link>
       <router-link :to="{name: 'learnComponent'}">learnComponent</router-link>
+      <router-link :to="{name: 'info'}">info</router-link>
     </div>
 
     <router-view></router-view>
@@ -29,17 +30,17 @@ export default {
 </script>
 
 <style>
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+  @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 
-.my-nav {
-  position: fixed;
-  top: 60px;
-  padding: 0 10px;
-}
+  .my-nav {
+    position: fixed;
+    top: 60px;
+    padding: 0 10px;
+  }
 
-.my-nav a {
-  display: block;
-  margin-bottom: 10px;
-    }
+  .my-nav a {
+    display: block;
+    margin-bottom: 10px;
+  }
 </style>
