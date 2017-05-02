@@ -1,20 +1,11 @@
-<template>
-  <div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-md-4" v-for="item in list">
-        <h2>{{ item.title }}</h2>
-        <p> {{ item.info}} </p>
-        <p><a class="btn btn-default" href="#" role="button">{{ item.btntext }}</a></p>
-      </div>
-    </div>
-
-    <hr>
-
-    <footer>
-      <p>&copy; 2016 Company, Inc.</p>
-    </footer>
-  </div> <!-- /container -->
+<template lang="pug">
+  .container
+    .row
+      .col-md-4(v-for="item in list")
+        h2 {{ item.title }}
+        p {{ item.info }}
+        p
+          a.btn.btn-default(href="#") {{ item.btntext }}
 </template>
 
 <script>
