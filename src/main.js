@@ -1,10 +1,11 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from './store';
 
 // init
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 // page
@@ -12,6 +13,8 @@ import Hello from './pages/Hello.vue';
 import CtoF from './pages/C2F.vue';
 import learnComponent from './pages/learnComponent.vue';
 import Info from './pages/Info.vue';
+import count from './pages/count.vue';
+
 
 import App from './App.vue';
 
@@ -41,8 +44,14 @@ const router = new VueRouter({
       name: 'info',
       component: Info
     },
-    // router 轉址
-    { path: '/*', redirect: '/hello' }
+    {
+      path: '/count',
+      name: 'count',
+      component: count
+    },
+    // 當 url path 不符合 router 表的時候，預設轉址到
+    // 順序一定要最後面		      // 順序一定要最後面
+    { path: '/*', redirect: '/count' }
   ]
 });
 
@@ -51,6 +60,8 @@ new Vue({
   el: '#app',
   // router 掛載設定
   router,
+  // 加入 store
+  store,
   // app.vue 掛載並 replace index.html 原始掛載點： <div id="app"></div>
   render: h => h( App )
 });

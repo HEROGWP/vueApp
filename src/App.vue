@@ -17,6 +17,7 @@
       <router-link :to="{name: 'c2f'}">CtoF</router-link>
       <router-link :to="{name: 'learnComponent'}">learnComponent</router-link>
       <router-link :to="{name: 'info'}">info</router-link>
+      <router-link :to="{name: 'count'}">count</router-link>
     </div>
 
     <router-view></router-view>
