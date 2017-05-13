@@ -24,3 +24,8 @@ export const actionCountReset = ({ commit }) => {
   console.log('actionCountReset');
   commit(types.COUNT_RESET);
 }
+
+export const addTodo = ({ commit }, newTodo) => {
+  // 直接將 newTodo 傳遞給 mutation
+  commit(types.ADD_TODO);
+}

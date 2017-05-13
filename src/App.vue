@@ -18,6 +18,7 @@
       <router-link :to="{name: 'learnComponent'}">learnComponent</router-link>
       <router-link :to="{name: 'info'}">info</router-link>
       <router-link :to="{name: 'count'}">count</router-link>
+      <router-link :to="{name: 'todo'}">todo</router-link>
     </div>
 
     <router-view></router-view>

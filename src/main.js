@@ -14,6 +14,8 @@ import CtoF from './pages/C2F.vue';
 import learnComponent from './pages/learnComponent.vue';
 import Info from './pages/Info.vue';
 import count from './pages/count.vue';
+import todo from './pages/todo.vue';
+
 
 
 import App from './App.vue';
@@ -48,6 +50,11 @@ const router = new VueRouter({
       path: '/count',
       name: 'count',
       component: count
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: todo
     },
     // 當 url path 不符合 router 表的時候，預設轉址到
     // 順序一定要最後面		      // 順序一定要最後面
