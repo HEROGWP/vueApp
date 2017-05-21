@@ -1,6 +1,15 @@
 <template lang="pug">
   .container
     h2 Todo list:
+    div
+      //-
+         加一個 input 用來新增 todo
+         希望按 enter 也可以增加 todo
+         在 Vue 裡面要捕捉 "按鍵事件" 可以使用 @keyup.[鍵位碼]
+         加入 @keyup.enter(修飾) 也等於 @keyup.13
+      input(type="text" placeholder="add Todo.." v-model="newTodo" @keyup.enter="actionAddTodo")
+      button(@click="actionAddTodo") add todo
+
     ul
       //- 使用 for render todos
       //-  提取 content 顯示
