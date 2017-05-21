@@ -1,19 +1,41 @@
 <template lang="pug">
   .container
-    h2 Todo list:
-    div
-      //-
-         加一個 input 用來新增 todo
-         希望按 enter 也可以增加 todo
-         在 Vue 裡面要捕捉 "按鍵事件" 可以使用 @keyup.[鍵位碼]
-         加入 @keyup.enter(修飾) 也等於 @keyup.13
-      input(type="text" placeholder="add Todo.." v-model="newTodo" @keyup.enter="actionAddTodo")
-      button(@click="actionAddTodo") add todo
+    h1 vue & vuex Todo List example
+    hr
+    .row
+      .nput-group.col-md-4
+        //-
+          加一個 input 用來新增 todo
+          希望按 enter 也可以增加 todo
+          在 Vue 裡面要捕捉 "按鍵事件" 可以使用 @keyup.[鍵位碼]
+          加入 @keyup.enter(修飾) 也等於 @keyup.13
+        input(type="text" placeholder="add Todo.." v-model="newTodo" @keyup.enter="actionAddTodo")
+        button(@click="actionAddTodo")
+          span.glyphicon.glyphicon-plus(aria-hidden="true")
+    //- 左右兩個欄位分別存放 todo / done
+    .row
+      .col-md-6
+        h2 Todo List:
+        li(v-for="(item, index) in todoList")
+          label {{ item.content }}
+            //-
+              改變狀態
+              套用 vuex 因此不能使用 v-model 做雙向綁定，會報錯誤
+              1. 將 list 的 value bind 到 input checked 屬性上，改變樣式。
+              2. onchange 事件發出 action 帶入 key
+            input(type="checkbox" v-bind:checked="item.done" @change="toggleTodo( item.key )")
 
-    ul
-      //- 使用 for render todos
-      //-  提取 content 顯示
-      li(v-for="(todo, index) in todos") {{ todo.content }}
+          //-
+            刪除按鈕
+            onclick 事件發出 action 帶入 key
+          button.btn.btn-xs.btn-danger(@click="deleteTodo( item.key )")
+            span.glyphicon.glyphicon-trash(aria-hidden="true")
+      .col-md-6
+        h2 Done List:
+        li(v-for="(item, index) in doneList")
+          label {{ item.content }}
+            input(type="checkbox" v-bind:checked="item.done" @change="toggleTodo( item.key )")
+
 </template>
 
 <script>
@@ -27,12 +49,14 @@
     },
     computed: {
       ...mapGetters ({
-        todos: 'getTodos'
+        todoList: 'getTodo',
+        doneList: 'getDone',
       })
     },
     methods: {
       ...mapActions([
-        'addTodo' // 方法一、先引入
+        'toggleTodo',
+        'deleteTodo',
       ]),
       actionAddTodo (){
         // 方法一、使用
